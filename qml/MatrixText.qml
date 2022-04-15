@@ -5,7 +5,7 @@
 
 import QtQuick 2.5
 import QtQuick.Controls 2.3
-import im.nheko 1.0
+import im.nheko
 
 TextEdit {
     id: r
@@ -27,7 +27,7 @@ TextEdit {
         TimelineManager.fixImageRendering(r.textDocument, r);
     }
 
-    CursorShape {
+    NhekoCursorShape {
         anchors.fill: parent
         cursorShape: hoveredLink ? Qt.PointingHandCursor : Qt.ArrowCursor
     }

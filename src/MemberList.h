@@ -6,12 +6,15 @@
 #pragma once
 
 #include <QAbstractListModel>
+#include <QQmlEngine>
 
 #include "CacheStructs.h"
 
 class MemberList : public QAbstractListModel
 {
     Q_OBJECT
+    QML_ELEMENT
+    QML_UNCREATABLE("MemberList needs to be instantiated from C++")
 
     Q_PROPERTY(QString roomName READ roomName NOTIFY roomNameChanged)
     Q_PROPERTY(int memberCount READ memberCount NOTIFY memberCountChanged)

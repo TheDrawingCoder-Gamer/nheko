@@ -12,44 +12,40 @@ ApplicationWindow {
 
     property alias rawMessage: rawMessageView.text
 
-    height: 420
-    width: 420
-    palette: timelineRoot.palette
     color: timelineRoot.palette.window
     flags: Qt.Tool | Qt.WindowStaysOnTopHint | Qt.WindowCloseButtonHint | Qt.WindowTitleHint
+    height: 420
+    palette: timelineRoot.palette
+    width: 420
+
+    footer: DialogButtonBox {
+        standardButtons: DialogButtonBox.Ok
+
+        onAccepted: rawMessageRoot.close()
+    }
 
     Shortcut {
         sequence: StandardKey.Cancel
+
         onActivated: rawMessageRoot.close()
     }
-
     ScrollView {
-        anchors.margins: Nheko.paddingMedium
         anchors.fill: parent
-        palette: timelineRoot.palette
+        anchors.margins: Nheko.paddingMedium
         padding: Nheko.paddingMedium
+        palette: timelineRoot.palette
 
         TextArea {
             id: rawMessageView
-
-            font: Nheko.monospaceFont()
+            anchors.fill: parent
             color: timelineRoot.palette.text
+            font: Nheko.monospaceFont()
             readOnly: true
             textFormat: Text.PlainText
-
-            anchors.fill: parent
 
             background: Rectangle {
                 color: timelineRoot.palette.base
             }
-
         }
-
     }
-
-    footer: DialogButtonBox {
-        standardButtons: DialogButtonBox.Ok
-        onAccepted: rawMessageRoot.close()
-    }
-
 }

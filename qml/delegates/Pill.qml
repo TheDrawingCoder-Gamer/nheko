@@ -9,14 +9,14 @@ import im.nheko
 
 Label {
     property bool isStateEvent
+
     color: timelineRoot.palette.text
-    horizontalAlignment: Text.AlignHCenter
     height: Math.round(fontMetrics.height * 1.4)
+    horizontalAlignment: Text.AlignHCenter
     width: contentWidth * 1.2
 
     background: Rectangle {
-        radius: parent.height / 2
         color: timelineRoot.palette.alternateBase
+        radius: parent.height / 2
     }
-
 }

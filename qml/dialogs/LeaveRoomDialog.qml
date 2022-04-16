@@ -11,12 +11,13 @@ import im.nheko
 P.MessageDialog {
     id: leaveRoomRoot
 
-    required property string roomId
     property string reason: ""
+    required property string roomId
 
-    title: qsTr("Leave room")
-    text: qsTr("Are you sure you want to leave?")
-    modality: Qt.ApplicationModal
     buttons: P.MessageDialog.Ok | P.MessageDialog.Cancel
+    modality: Qt.ApplicationModal
+    text: qsTr("Are you sure you want to leave?")
+    title: qsTr("Leave room")
+
     onAccepted: Rooms.leave(roomId, reason)
 }

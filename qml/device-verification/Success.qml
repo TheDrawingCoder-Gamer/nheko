@@ -10,6 +10,7 @@ import im.nheko
 
 Pane {
     property string title: qsTr("Successful Verification")
+
     background: Rectangle {
         color: timelineRoot.palette.window
     }
@@ -20,30 +21,26 @@ Pane {
 
         Label {
             id: content
-
-            Layout.preferredWidth: 400
             Layout.fillWidth: true
-            wrapMode: Text.Wrap
-            text: qsTr("Verification successful! Both sides verified their devices!")
+            Layout.preferredWidth: 400
             color: timelineRoot.palette.text
+            text: qsTr("Verification successful! Both sides verified their devices!")
             verticalAlignment: Text.AlignVCenter
+            wrapMode: Text.Wrap
         }
-
-        Item { Layout.fillHeight: true; }
-
+        Item {
+            Layout.fillHeight: true
+        }
         RowLayout {
             Item {
                 Layout.fillWidth: true
             }
-
             Button {
                 Layout.alignment: Qt.AlignRight
                 text: qsTr("Close")
+
                 onClicked: dialog.close()
             }
-
         }
-
     }
-
 }

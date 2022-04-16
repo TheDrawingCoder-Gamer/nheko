@@ -10,36 +10,31 @@ import im.nheko
 
 Switch {
     id: toggleButton
-
     implicitWidth: indicatorItem.width
 
     indicator: Item {
         id: indicatorItem
-
-        implicitWidth: 48
         implicitHeight: 24
+        implicitWidth: 48
         y: parent.height / 2 - height / 2
 
         Rectangle {
+            border.color: "#cccccc"
+            color: toggleButton.checked ? "skyblue" : "grey"
             height: 3 * parent.height / 4
             radius: height / 2
             width: parent.width - height
             x: radius
             y: parent.height / 2 - height / 2
-            color: toggleButton.checked ? "skyblue" : "grey"
-            border.color: "#cccccc"
         }
-
         Rectangle {
-            x: toggleButton.checked ? parent.width - width : 0
-            y: parent.height / 2 - height / 2
-            width: parent.height
+            border.color: "#ebebeb"
+            color: toggleButton.enabled ? "whitesmoke" : "#cccccc"
             height: width
             radius: width / 2
-            color: toggleButton.enabled ? "whitesmoke" : "#cccccc"
-            border.color: "#ebebeb"
+            width: parent.height
+            x: toggleButton.checked ? parent.width - width : 0
+            y: parent.height / 2 - height / 2
         }
-
     }
-
 }

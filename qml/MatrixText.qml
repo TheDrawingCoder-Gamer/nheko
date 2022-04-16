@@ -9,27 +9,26 @@ import im.nheko
 
 TextEdit {
     id: r
-
-    textFormat: TextEdit.RichText
-    readOnly: true
-    focus: false
-    wrapMode: Text.Wrap
-    selectByMouse: !Settings.mobileMode
+    ToolTip.text: hoveredLink
+    ToolTip.visible: hoveredLink || false
     // this always has to be enabled, otherwise you can't click links anymore!
     //enabled: selectByMouse
     color: timelineRoot.palette.text
-    onLinkActivated: Nheko.openLink(link)
-    ToolTip.visible: hoveredLink || false
-    ToolTip.text: hoveredLink
+    focus: false
+    readOnly: true
+    selectByMouse: !Settings.mobileMode
+    textFormat: TextEdit.RichText
+    wrapMode: Text.Wrap
+
     // Setting a tooltip delay makes the hover text empty .-.
     //ToolTip.delay: Nheko.tooltipDelay
     Component.onCompleted: {
         TimelineManager.fixImageRendering(r.textDocument, r);
     }
+    onLinkActivated: Nheko.openLink(link)
 
     NhekoCursorShape {
         anchors.fill: parent
         cursorShape: hoveredLink ? Qt.PointingHandCursor : Qt.ArrowCursor
     }
-
 }

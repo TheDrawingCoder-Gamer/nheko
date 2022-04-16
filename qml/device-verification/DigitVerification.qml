@@ -10,6 +10,7 @@ import im.nheko
 
 Pane {
     property string title: qsTr("Verification Code")
+
     background: Rectangle {
         color: timelineRoot.palette.window
     }
@@ -19,61 +20,57 @@ Pane {
         spacing: 16
 
         Label {
-            Layout.preferredWidth: 400
             Layout.fillWidth: true
-            wrapMode: Text.Wrap
-            text: qsTr("Please verify the following digits. You should see the same numbers on both sides. If they differ, please press 'They do not match!' to abort verification!")
+            Layout.preferredWidth: 400
             color: timelineRoot.palette.text
+            text: qsTr("Please verify the following digits. You should see the same numbers on both sides. If they differ, please press 'They do not match!' to abort verification!")
             verticalAlignment: Text.AlignVCenter
+            wrapMode: Text.Wrap
         }
-
-        Item { Layout.fillHeight: true; }
+        Item {
+            Layout.fillHeight: true
+        }
         RowLayout {
             Layout.alignment: Qt.AlignHCenter
 
             Label {
+                color: timelineRoot.palette.text
                 font.pixelSize: Qt.application.font.pixelSize * 2
                 text: flow.sasList[0]
-                color: timelineRoot.palette.text
             }
-
             Label {
+                color: timelineRoot.palette.text
                 font.pixelSize: Qt.application.font.pixelSize * 2
                 text: flow.sasList[1]
-                color: timelineRoot.palette.text
             }
-
             Label {
+                color: timelineRoot.palette.text
                 font.pixelSize: Qt.application.font.pixelSize * 2
                 text: flow.sasList[2]
-                color: timelineRoot.palette.text
             }
-
         }
-        Item { Layout.fillHeight: true; }
-
+        Item {
+            Layout.fillHeight: true
+        }
         RowLayout {
             Button {
                 Layout.alignment: Qt.AlignLeft
                 text: qsTr("They do not match!")
+
                 onClicked: {
                     flow.cancel();
                     dialog.close();
                 }
             }
-
             Item {
                 Layout.fillWidth: true
             }
-
             Button {
                 Layout.alignment: Qt.AlignRight
                 text: qsTr("They match!")
+
                 onClicked: flow.next()
             }
-
         }
-
     }
-
 }

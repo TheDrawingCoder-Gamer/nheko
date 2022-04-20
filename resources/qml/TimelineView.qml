@@ -190,7 +190,7 @@ Item {
 
         MatrixText {
             visible: !!room
-            text: qsTr("%1 member(s)").arg(room ? room.roomMemberCount : 0)
+            text: qsTr("%n member(s)", "", room ? room.roomMemberCount : 0)
             Layout.alignment: Qt.AlignHCenter
         }
 

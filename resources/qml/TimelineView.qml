@@ -10,7 +10,7 @@ import "./emoji"
 import "./ui"
 import "./voip"
 import Qt.labs.platform 1.1 as Platform
-import QtQuick 2.9
+import QtQuick 2.15
 import QtQuick.Controls 2.5
 import QtQuick.Layouts 1.3
 import QtQuick.Window 2.13
@@ -46,6 +46,15 @@ Item {
         // height is somewhat arbitrary here... don't set width because width scales w/ height
         height: parent.height / 16
         z: 3
+        opacity: hh.hovered ? 0.3 : 1
+
+        Behavior on opacity {
+            NumberAnimation { duration: 100; }
+        }
+
+        HoverHandler {
+            id: hh
+        }
     }
 
     ColumnLayout {
